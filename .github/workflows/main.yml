@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: junminahn/action-ssh@v0.1.0
+        uses: junminahn/action-ssh@v0.2.0
         with:
           encryption_key: ${{ secrets.ENCRYPTION_KEY }}
       - name: Deploy Example
