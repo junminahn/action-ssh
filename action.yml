@@ -1,0 +1,30 @@
+name: "OpenSSH GitHub"
+description: "OpenSSH for passwordless (key based) authentication"
+inputs:
+  encryption_key:
+    description: "The key to decrypt the encrypted private key."
+    required: true
+    default: abcde
+  private_key_path:
+    description: "The location of the private key."
+    required: false
+    default: .github/workflows/secrets/id_rsa
+  ssh_agent_path:
+    description: "The location of 'ssh_agent.sock'"
+    required: false
+    default: /tmp/ssh_agent.sock
+outputs:
+  ssh_agent_path:
+    description: "The location of 'ssh_agent.sock'"
+    value: ${{ inputs.ssh_agent_path }}
+runs:
+  using: "composite"
+  steps:
+    - id: set-ssh
+      env:
+        PRIVATE_KEY_PATH: ${{ inputs.private_key_path }}
+        SSH_AUTH_SOCK: ${{ inputs.ssh_agent_path }}
+      run: |
+        ${{ github.action_path }}/main.sh ${{ inputs.encryption_key }}
+        echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >>$GITHUB_ENV
+      shell: bash

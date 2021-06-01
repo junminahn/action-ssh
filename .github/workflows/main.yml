@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test GitHub Action
+    steps:
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: junminahn/action-ssh@v0.1.0
+        with:
+          encryption_key: ${{ secrets.ENCRYPTION_KEY }}
+      - name: Deploy Example
+        run: |
+          rm -rf .git
+          git init
+          git config user.name "Junmin Ahn"
+          git config user.email 'junminahn@users.noreply.github.com'
+          git config commit.gpgsign false
+          git add .
+          git commit -m "deploy example to github pages"
+          git push --force --quiet git@github.com:junminahn/action-ssh.git main:example
