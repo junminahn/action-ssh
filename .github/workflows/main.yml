@@ -22,4 +22,4 @@ jobs:
           git config commit.gpgsign false
           git add .
           git commit -m "deploy example to github pages"
-          git push --force --quiet git@github.com:junminahn/action-ssh.git main:example
+          git push --force --quiet git@github.com:junminahn/action-ssh.git master:example
