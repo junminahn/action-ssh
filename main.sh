@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$#" -ne 1 ]; then
+  echo "The encryption key is required."
   exit 1
 fi
 
