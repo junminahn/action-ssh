@@ -20,6 +20,7 @@ jobs:
           git config user.name "Junmin Ahn"
           git config user.email "junminahn@users.noreply.github.com"
           git config commit.gpgsign false
-          git add .
+          echo "ci example" > README.md
+          git add README.md
           git commit -m "deploy example to github pages"
           git push --force --quiet git@github.com:junminahn/action-ssh.git master:example
