@@ -10,10 +10,17 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+<a name="v0.2.0"></a>
+## [v0.2.0] - 2021-06-01
+
+- Update error message with no encryption key
+
+
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2021-06-01
 FEATURES:
 - Support ssh auth
 
 
-[Unreleased]: https://github.com/junminahn/action-openssh/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/junminahn/action-openssh/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/junminahn/action-openssh/compare/v0.1.0...v0.2.0
